@@ -11,9 +11,10 @@ _$BaseResponseImpl<T> _$$BaseResponseImplFromJson<T>(
   T Function(Object? json) fromJsonT,
 ) =>
     _$BaseResponseImpl<T>(
-      status: json['status'] as String? ?? '',
-      totalResults: json['totalResults'] as int? ?? 0,
-      articles: fromJsonT(json['articles']),
+      count: json['count'] as int? ?? 0,
+      next: json['next'] as String? ?? '',
+      previous: json['previous'] as String? ?? '',
+      results: fromJsonT(json['results']),
     );
 
 Map<String, dynamic> _$$BaseResponseImplToJson<T>(
@@ -21,7 +22,8 @@ Map<String, dynamic> _$$BaseResponseImplToJson<T>(
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
-      'status': instance.status,
-      'totalResults': instance.totalResults,
-      'articles': toJsonT(instance.articles),
+      'count': instance.count,
+      'next': instance.next,
+      'previous': instance.previous,
+      'results': toJsonT(instance.results),
     };

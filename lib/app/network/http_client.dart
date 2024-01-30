@@ -18,7 +18,9 @@ class HttpClient {
       receiveTimeout: const Duration(seconds: 30),
       headers: {
         Headers.acceptHeader: Headers.jsonContentType,
-        'X-Api-Key': _config.apiKey,
+      },
+      queryParameters: {
+        'key': _config.apiKey,
       },
     );
     _dio = Dio(options);

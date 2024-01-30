@@ -21,9 +21,10 @@ BaseResponse<T> _$BaseResponseFromJson<T>(
 
 /// @nodoc
 mixin _$BaseResponse<T> {
-  String get status => throw _privateConstructorUsedError;
-  int get totalResults => throw _privateConstructorUsedError;
-  T get articles => throw _privateConstructorUsedError;
+  int get count => throw _privateConstructorUsedError;
+  String get next => throw _privateConstructorUsedError;
+  String get previous => throw _privateConstructorUsedError;
+  T get results => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
       throw _privateConstructorUsedError;
@@ -38,7 +39,7 @@ abstract class $BaseResponseCopyWith<T, $Res> {
           BaseResponse<T> value, $Res Function(BaseResponse<T>) then) =
       _$BaseResponseCopyWithImpl<T, $Res, BaseResponse<T>>;
   @useResult
-  $Res call({String status, int totalResults, T articles});
+  $Res call({int count, String next, String previous, T results});
 }
 
 /// @nodoc
@@ -54,22 +55,27 @@ class _$BaseResponseCopyWithImpl<T, $Res, $Val extends BaseResponse<T>>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? totalResults = null,
-    Object? articles = freezed,
+    Object? count = null,
+    Object? next = null,
+    Object? previous = null,
+    Object? results = freezed,
   }) {
     return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      totalResults: null == totalResults
-          ? _value.totalResults
-          : totalResults // ignore: cast_nullable_to_non_nullable
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
               as int,
-      articles: freezed == articles
-          ? _value.articles
-          : articles // ignore: cast_nullable_to_non_nullable
+      next: null == next
+          ? _value.next
+          : next // ignore: cast_nullable_to_non_nullable
+              as String,
+      previous: null == previous
+          ? _value.previous
+          : previous // ignore: cast_nullable_to_non_nullable
+              as String,
+      results: freezed == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
               as T,
     ) as $Val);
   }
@@ -83,7 +89,7 @@ abstract class _$$BaseResponseImplCopyWith<T, $Res>
       __$$BaseResponseImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({String status, int totalResults, T articles});
+  $Res call({int count, String next, String previous, T results});
 }
 
 /// @nodoc
@@ -97,22 +103,27 @@ class __$$BaseResponseImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? totalResults = null,
-    Object? articles = freezed,
+    Object? count = null,
+    Object? next = null,
+    Object? previous = null,
+    Object? results = freezed,
   }) {
     return _then(_$BaseResponseImpl<T>(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      totalResults: null == totalResults
-          ? _value.totalResults
-          : totalResults // ignore: cast_nullable_to_non_nullable
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
               as int,
-      articles: freezed == articles
-          ? _value.articles
-          : articles // ignore: cast_nullable_to_non_nullable
+      next: null == next
+          ? _value.next
+          : next // ignore: cast_nullable_to_non_nullable
+              as String,
+      previous: null == previous
+          ? _value.previous
+          : previous // ignore: cast_nullable_to_non_nullable
+              as String,
+      results: freezed == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
               as T,
     ));
   }
@@ -122,7 +133,10 @@ class __$$BaseResponseImplCopyWithImpl<T, $Res>
 @JsonSerializable(genericArgumentFactories: true)
 class _$BaseResponseImpl<T> implements _BaseResponse<T> {
   const _$BaseResponseImpl(
-      {this.status = '', this.totalResults = 0, required this.articles});
+      {this.count = 0,
+      this.next = '',
+      this.previous = '',
+      required this.results});
 
   factory _$BaseResponseImpl.fromJson(
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
@@ -130,16 +144,19 @@ class _$BaseResponseImpl<T> implements _BaseResponse<T> {
 
   @override
   @JsonKey()
-  final String status;
+  final int count;
   @override
   @JsonKey()
-  final int totalResults;
+  final String next;
   @override
-  final T articles;
+  @JsonKey()
+  final String previous;
+  @override
+  final T results;
 
   @override
   String toString() {
-    return 'BaseResponse<$T>(status: $status, totalResults: $totalResults, articles: $articles)';
+    return 'BaseResponse<$T>(count: $count, next: $next, previous: $previous, results: $results)';
   }
 
   @override
@@ -147,16 +164,17 @@ class _$BaseResponseImpl<T> implements _BaseResponse<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BaseResponseImpl<T> &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.totalResults, totalResults) ||
-                other.totalResults == totalResults) &&
-            const DeepCollectionEquality().equals(other.articles, articles));
+            (identical(other.count, count) || other.count == count) &&
+            (identical(other.next, next) || other.next == next) &&
+            (identical(other.previous, previous) ||
+                other.previous == previous) &&
+            const DeepCollectionEquality().equals(other.results, results));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, status, totalResults,
-      const DeepCollectionEquality().hash(articles));
+  int get hashCode => Object.hash(runtimeType, count, next, previous,
+      const DeepCollectionEquality().hash(results));
 
   @JsonKey(ignore: true)
   @override
@@ -173,20 +191,23 @@ class _$BaseResponseImpl<T> implements _BaseResponse<T> {
 
 abstract class _BaseResponse<T> implements BaseResponse<T> {
   const factory _BaseResponse(
-      {final String status,
-      final int totalResults,
-      required final T articles}) = _$BaseResponseImpl<T>;
+      {final int count,
+      final String next,
+      final String previous,
+      required final T results}) = _$BaseResponseImpl<T>;
 
   factory _BaseResponse.fromJson(
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =
       _$BaseResponseImpl<T>.fromJson;
 
   @override
-  String get status;
+  int get count;
   @override
-  int get totalResults;
+  String get next;
   @override
-  T get articles;
+  String get previous;
+  @override
+  T get results;
   @override
   @JsonKey(ignore: true)
   _$$BaseResponseImplCopyWith<T, _$BaseResponseImpl<T>> get copyWith =>
