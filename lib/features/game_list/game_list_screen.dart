@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:playstation_5_games/app/localizations/build_context_localizations_extension.dart';
 import 'package:playstation_5_games/app/widgets/empty_data_widget.dart';
 import 'package:playstation_5_games/app/widgets/error_state_widget.dart';
 import 'package:playstation_5_games/app/widgets/loading_state_widget.dart';
@@ -31,9 +32,9 @@ class _GameListScreenState extends ConsumerState<GameListScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Playstation 5 Games',
-          style: TextStyle(
+        title: Text(
+          context.localizations.playstation5Games,
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),
@@ -43,7 +44,9 @@ class _GameListScreenState extends ConsumerState<GameListScreen> {
         child: gameList.when(
           data: (data) {
             if (data.isEmpty) {
-              return const EmptyDataWidget(text: 'No Playstation 5 Games');
+              return EmptyDataWidget(
+                text: context.localizations.noPlaystation5Games,
+              );
             }
 
             return ListView.builder(

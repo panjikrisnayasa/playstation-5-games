@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playstation_5_games/app/data/games/model/game.dart';
+import 'package:playstation_5_games/app/localizations/build_context_localizations_extension.dart';
 import 'package:playstation_5_games/app/utils/date_time_formatter.dart';
 
 class GameCard extends StatelessWidget {
@@ -40,7 +41,7 @@ class GameCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                'Released date: ${game.released.yMMMd(context)}',
+                '${context.localizations.releasedDate} ${game.released.yMMMd(context)}',
                 style: const TextStyle(
                   color: Colors.black54,
                   fontSize: 12,
@@ -72,13 +73,13 @@ class GameCard extends StatelessWidget {
         game.backgroundImage,
         height: imageHeight,
         fit: BoxFit.cover,
-        loadingBuilder: (_, child, loadingProgress) {
+        loadingBuilder: (context, child, loadingProgress) {
           if (loadingProgress == null) return child;
 
-          return imageStateContainer('Loading image...');
+          return imageStateContainer(context.localizations.loadingImage);
         },
         errorBuilder: (context, error, stackTrace) =>
-            imageStateContainer('No image available'),
+            imageStateContainer(context.localizations.noImageAvailable),
       ),
     );
   }

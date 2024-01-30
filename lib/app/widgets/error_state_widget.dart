@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playstation_5_games/app/localizations/build_context_localizations_extension.dart';
 
 class ErrorStateWidget extends StatelessWidget {
   const ErrorStateWidget({
@@ -14,11 +15,11 @@ class ErrorStateWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text('Failed to fetch data'),
+          Text(context.localizations.failedToFetchData),
           const SizedBox(height: 8),
           ElevatedButton(
             onPressed: onRetry,
-            child: const Text('Try again'),
+            child: Text(context.localizations.tryAgain),
           ),
         ],
       ),

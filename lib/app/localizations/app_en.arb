@@ -1,0 +1,10 @@
+{
+  "playstation5Games": "Playstation 5 Games",
+  "noPlaystation5Games": "No Playstation 5 Games",
+  "releasedDate": "Released date",
+  "loadingImage": "Loading image...",
+  "noImageAvailable": "No image available",
+  "tryAgain": "Try Again",
+  "failedToFetchData": "Failed to fetch data",
+  "loading": "Loading..."
+}
