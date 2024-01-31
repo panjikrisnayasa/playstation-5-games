@@ -96,6 +96,7 @@ class _GameListScreenState extends ConsumerState<GameListScreen> {
         return true;
       },
       child: ListView.builder(
+        key: const Key('game_list'),
         padding: const EdgeInsets.only(
           left: 8,
           right: 8,
@@ -106,7 +107,10 @@ class _GameListScreenState extends ConsumerState<GameListScreen> {
           if (index < data.length) {
             final game = data[index];
 
-            return GameCard(game: game);
+            return GameCard(
+              key: Key('game_item_${game.id}'),
+              game: game,
+            );
           }
 
           return NextPageLoadingIndicator(
