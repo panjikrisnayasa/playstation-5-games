@@ -132,7 +132,7 @@ final _expectedPlaystation5Games = [
     ratingsCount: 0,
     reviewsTextCount: 0,
     added: 61,
-    metaCritic: 0,
+    metacritic: 0,
     suggestionsCount: 478,
     updated: DateTime(2024, 1, 13),
     id: 972995,

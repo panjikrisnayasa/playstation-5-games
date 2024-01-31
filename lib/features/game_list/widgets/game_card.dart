@@ -47,6 +47,14 @@ class GameCard extends StatelessWidget {
                   fontSize: 12,
                 ),
               ),
+              const SizedBox(height: 8),
+              Text(
+                '${context.localizations.metacriticScore} ${game.metacritic}',
+                style: const TextStyle(
+                  color: Colors.black54,
+                  fontSize: 12,
+                ),
+              ),
             ],
           ),
         ),

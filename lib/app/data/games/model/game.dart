@@ -22,7 +22,7 @@ class Game with _$Game {
     @Default(0) int ratingsCount,
     @Default(0) int reviewsTextCount,
     @Default(0) int added,
-    @JsonKey(name: 'metacritic') @Default(0) int metaCritic,
+    @Default(0) int metacritic,
     @Default(0) int playtime,
     @Default(0) int suggestionsCount,
     @TryParseDateTime() DateTime? updated,

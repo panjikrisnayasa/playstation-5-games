@@ -33,8 +33,7 @@ mixin _$Game {
   int get ratingsCount => throw _privateConstructorUsedError;
   int get reviewsTextCount => throw _privateConstructorUsedError;
   int get added => throw _privateConstructorUsedError;
-  @JsonKey(name: 'metacritic')
-  int get metaCritic => throw _privateConstructorUsedError;
+  int get metacritic => throw _privateConstructorUsedError;
   int get playtime => throw _privateConstructorUsedError;
   int get suggestionsCount => throw _privateConstructorUsedError;
   @TryParseDateTime()
@@ -65,7 +64,7 @@ abstract class $GameCopyWith<$Res> {
       int ratingsCount,
       int reviewsTextCount,
       int added,
-      @JsonKey(name: 'metacritic') int metaCritic,
+      int metacritic,
       int playtime,
       int suggestionsCount,
       @TryParseDateTime() DateTime? updated,
@@ -100,7 +99,7 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
     Object? ratingsCount = null,
     Object? reviewsTextCount = null,
     Object? added = null,
-    Object? metaCritic = null,
+    Object? metacritic = null,
     Object? playtime = null,
     Object? suggestionsCount = null,
     Object? updated = freezed,
@@ -156,9 +155,9 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
           ? _value.added
           : added // ignore: cast_nullable_to_non_nullable
               as int,
-      metaCritic: null == metaCritic
-          ? _value.metaCritic
-          : metaCritic // ignore: cast_nullable_to_non_nullable
+      metacritic: null == metacritic
+          ? _value.metacritic
+          : metacritic // ignore: cast_nullable_to_non_nullable
               as int,
       playtime: null == playtime
           ? _value.playtime
@@ -212,7 +211,7 @@ abstract class _$$GameImplCopyWith<$Res> implements $GameCopyWith<$Res> {
       int ratingsCount,
       int reviewsTextCount,
       int added,
-      @JsonKey(name: 'metacritic') int metaCritic,
+      int metacritic,
       int playtime,
       int suggestionsCount,
       @TryParseDateTime() DateTime? updated,
@@ -245,7 +244,7 @@ class __$$GameImplCopyWithImpl<$Res>
     Object? ratingsCount = null,
     Object? reviewsTextCount = null,
     Object? added = null,
-    Object? metaCritic = null,
+    Object? metacritic = null,
     Object? playtime = null,
     Object? suggestionsCount = null,
     Object? updated = freezed,
@@ -301,9 +300,9 @@ class __$$GameImplCopyWithImpl<$Res>
           ? _value.added
           : added // ignore: cast_nullable_to_non_nullable
               as int,
-      metaCritic: null == metaCritic
-          ? _value.metaCritic
-          : metaCritic // ignore: cast_nullable_to_non_nullable
+      metacritic: null == metacritic
+          ? _value.metacritic
+          : metacritic // ignore: cast_nullable_to_non_nullable
               as int,
       playtime: null == playtime
           ? _value.playtime
@@ -346,7 +345,7 @@ class _$GameImpl implements _Game {
       this.ratingsCount = 0,
       this.reviewsTextCount = 0,
       this.added = 0,
-      @JsonKey(name: 'metacritic') this.metaCritic = 0,
+      this.metacritic = 0,
       this.playtime = 0,
       this.suggestionsCount = 0,
       @TryParseDateTime() this.updated,
@@ -401,8 +400,8 @@ class _$GameImpl implements _Game {
   @JsonKey()
   final int added;
   @override
-  @JsonKey(name: 'metacritic')
-  final int metaCritic;
+  @JsonKey()
+  final int metacritic;
   @override
   @JsonKey()
   final int playtime;
@@ -426,7 +425,7 @@ class _$GameImpl implements _Game {
 
   @override
   String toString() {
-    return 'Game(id: $id, slug: $slug, name: $name, released: $released, tba: $tba, backgroundImage: $backgroundImage, rating: $rating, ratingTop: $ratingTop, ratings: $ratings, ratingsCount: $ratingsCount, reviewsTextCount: $reviewsTextCount, added: $added, metaCritic: $metaCritic, playtime: $playtime, suggestionsCount: $suggestionsCount, updated: $updated, esrbRating: $esrbRating, platforms: $platforms)';
+    return 'Game(id: $id, slug: $slug, name: $name, released: $released, tba: $tba, backgroundImage: $backgroundImage, rating: $rating, ratingTop: $ratingTop, ratings: $ratings, ratingsCount: $ratingsCount, reviewsTextCount: $reviewsTextCount, added: $added, metacritic: $metacritic, playtime: $playtime, suggestionsCount: $suggestionsCount, updated: $updated, esrbRating: $esrbRating, platforms: $platforms)';
   }
 
   @override
@@ -451,8 +450,8 @@ class _$GameImpl implements _Game {
             (identical(other.reviewsTextCount, reviewsTextCount) ||
                 other.reviewsTextCount == reviewsTextCount) &&
             (identical(other.added, added) || other.added == added) &&
-            (identical(other.metaCritic, metaCritic) ||
-                other.metaCritic == metaCritic) &&
+            (identical(other.metacritic, metacritic) ||
+                other.metacritic == metacritic) &&
             (identical(other.playtime, playtime) ||
                 other.playtime == playtime) &&
             (identical(other.suggestionsCount, suggestionsCount) ||
@@ -480,7 +479,7 @@ class _$GameImpl implements _Game {
       ratingsCount,
       reviewsTextCount,
       added,
-      metaCritic,
+      metacritic,
       playtime,
       suggestionsCount,
       updated,
@@ -515,7 +514,7 @@ abstract class _Game implements Game {
       final int ratingsCount,
       final int reviewsTextCount,
       final int added,
-      @JsonKey(name: 'metacritic') final int metaCritic,
+      final int metacritic,
       final int playtime,
       final int suggestionsCount,
       @TryParseDateTime() final DateTime? updated,
@@ -550,8 +549,7 @@ abstract class _Game implements Game {
   @override
   int get added;
   @override
-  @JsonKey(name: 'metacritic')
-  int get metaCritic;
+  int get metacritic;
   @override
   int get playtime;
   @override

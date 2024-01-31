@@ -6,5 +6,6 @@
   "noImageAvailable": "No image available",
   "tryAgain": "Try Again",
   "failedToFetchData": "Failed to fetch data",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "metacriticScore": "Metacritic score"
 }
