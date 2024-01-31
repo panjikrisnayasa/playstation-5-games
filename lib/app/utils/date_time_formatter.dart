@@ -20,4 +20,12 @@ extension DateTimeFormatter on DateTime? {
 
     return '${yMMMd(context)} ${Hm(context)}';
   }
+
+  /// Format DateTime to date only String
+  /// Result example: 2024-12-31
+  String get formatDateToString {
+    if (this == null) return '-';
+
+    return DateFormat('yyyy-MM-dd').format(this!);
+  }
 }

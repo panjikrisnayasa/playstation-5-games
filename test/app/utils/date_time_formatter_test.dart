@@ -57,4 +57,18 @@ void main() {
       });
     });
   });
+
+  group('Validate formatDateToString getter', () {
+    final inputsToExpected = <DateTime?, String>{
+      null: '-',
+      DateTime(2024, 1, 19, 20, 57): '2024-01-19',
+      DateTime(0): '0000-01-01',
+    };
+
+    inputsToExpected.forEach((input, expected) {
+      test('formatDateToString $input to $expected', () {
+        expect(input.formatDateToString, expected);
+      });
+    });
+  });
 }
