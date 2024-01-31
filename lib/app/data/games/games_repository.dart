@@ -19,7 +19,7 @@ class GamesRepository {
 
   final HttpClient _httpClient;
 
-  Future<List<Game>> getPlaystation5Games({
+  Future<BaseResponse<List<Game>>> getPlaystation5Games({
     int page = 1,
     int pageSize = 20,
     DateTime? startDate,
@@ -61,6 +61,6 @@ class GamesRepository {
                 .toList() ??
             [];
       },
-    ).results;
+    );
   }
 }

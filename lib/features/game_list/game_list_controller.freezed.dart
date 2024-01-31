@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$GameListUiState {
   AsyncValue<List<Game>> get gameList => throw _privateConstructorUsedError;
+  AsyncValue<void> get nextPageGameList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GameListUiStateCopyWith<GameListUiState> get copyWith =>
@@ -29,7 +30,8 @@ abstract class $GameListUiStateCopyWith<$Res> {
           GameListUiState value, $Res Function(GameListUiState) then) =
       _$GameListUiStateCopyWithImpl<$Res, GameListUiState>;
   @useResult
-  $Res call({AsyncValue<List<Game>> gameList});
+  $Res call(
+      {AsyncValue<List<Game>> gameList, AsyncValue<void> nextPageGameList});
 }
 
 /// @nodoc
@@ -46,12 +48,17 @@ class _$GameListUiStateCopyWithImpl<$Res, $Val extends GameListUiState>
   @override
   $Res call({
     Object? gameList = null,
+    Object? nextPageGameList = null,
   }) {
     return _then(_value.copyWith(
       gameList: null == gameList
           ? _value.gameList
           : gameList // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<Game>>,
+      nextPageGameList: null == nextPageGameList
+          ? _value.nextPageGameList
+          : nextPageGameList // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<void>,
     ) as $Val);
   }
 }
@@ -64,7 +71,8 @@ abstract class _$$GameListUiStateImplCopyWith<$Res>
       __$$GameListUiStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<List<Game>> gameList});
+  $Res call(
+      {AsyncValue<List<Game>> gameList, AsyncValue<void> nextPageGameList});
 }
 
 /// @nodoc
@@ -79,12 +87,17 @@ class __$$GameListUiStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? gameList = null,
+    Object? nextPageGameList = null,
   }) {
     return _then(_$GameListUiStateImpl(
       gameList: null == gameList
           ? _value.gameList
           : gameList // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<Game>>,
+      nextPageGameList: null == nextPageGameList
+          ? _value.nextPageGameList
+          : nextPageGameList // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<void>,
     ));
   }
 }
@@ -92,15 +105,20 @@ class __$$GameListUiStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GameListUiStateImpl implements _GameListUiState {
-  const _$GameListUiStateImpl({this.gameList = const AsyncValue.loading()});
+  const _$GameListUiStateImpl(
+      {this.gameList = const AsyncValue.loading(),
+      this.nextPageGameList = const AsyncValue.data(null)});
 
   @override
   @JsonKey()
   final AsyncValue<List<Game>> gameList;
+  @override
+  @JsonKey()
+  final AsyncValue<void> nextPageGameList;
 
   @override
   String toString() {
-    return 'GameListUiState(gameList: $gameList)';
+    return 'GameListUiState(gameList: $gameList, nextPageGameList: $nextPageGameList)';
   }
 
   @override
@@ -109,11 +127,13 @@ class _$GameListUiStateImpl implements _GameListUiState {
         (other.runtimeType == runtimeType &&
             other is _$GameListUiStateImpl &&
             (identical(other.gameList, gameList) ||
-                other.gameList == gameList));
+                other.gameList == gameList) &&
+            (identical(other.nextPageGameList, nextPageGameList) ||
+                other.nextPageGameList == nextPageGameList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, gameList);
+  int get hashCode => Object.hash(runtimeType, gameList, nextPageGameList);
 
   @JsonKey(ignore: true)
   @override
@@ -124,11 +144,14 @@ class _$GameListUiStateImpl implements _GameListUiState {
 }
 
 abstract class _GameListUiState implements GameListUiState {
-  const factory _GameListUiState({final AsyncValue<List<Game>> gameList}) =
-      _$GameListUiStateImpl;
+  const factory _GameListUiState(
+      {final AsyncValue<List<Game>> gameList,
+      final AsyncValue<void> nextPageGameList}) = _$GameListUiStateImpl;
 
   @override
   AsyncValue<List<Game>> get gameList;
+  @override
+  AsyncValue<void> get nextPageGameList;
   @override
   @JsonKey(ignore: true)
   _$$GameListUiStateImplCopyWith<_$GameListUiStateImpl> get copyWith =>

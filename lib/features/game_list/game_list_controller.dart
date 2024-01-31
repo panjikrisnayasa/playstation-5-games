@@ -19,6 +19,10 @@ class GameListController extends StateNotifier<GameListUiState> {
 
   final GamesRepository _gamesRepository;
 
+  int _currentPage = 1;
+  bool _isLastPage = false;
+  late List<Game> _currentData;
+
   void onScreenLoaded() {
     unawaited(_getPlaystation5Games());
   }
@@ -30,13 +34,62 @@ class GameListController extends StateNotifier<GameListUiState> {
   Future<void> _getPlaystation5Games() async {
     state = state.copyWith(gameList: const AsyncValue.loading());
 
+    _currentPage = 1;
+
     final result = await AsyncValue.guard(
       () => _gamesRepository.getPlaystation5Games(),
     );
 
     if (!mounted) return;
 
-    state = state.copyWith(gameList: result);
+    if (result is AsyncData) {
+      final value = result.value!;
+
+      _currentData = value.results;
+      _isLastPage = value.next.isEmpty;
+
+      state = state.copyWith(
+        gameList: AsyncValue.data(_currentData),
+      );
+    } else if (result is AsyncError) {
+      state = state.copyWith(
+        gameList: AsyncValue.error(result.error!, result.stackTrace!),
+      );
+    }
+  }
+
+  Future<void> loadMorePlaystation5Games() async {
+    if (state.gameList is! AsyncData ||
+        state.nextPageGameList is AsyncLoading ||
+        _isLastPage) return;
+
+    state = state.copyWith(nextPageGameList: const AsyncValue.loading());
+
+    final result = await AsyncValue.guard(
+      () async => _gamesRepository.getPlaystation5Games(
+        page: _currentPage + 1,
+      ),
+    );
+
+    if (!mounted) return;
+
+    if (result is AsyncData) {
+      final value = result.value!;
+
+      _currentPage++;
+      _currentData.addAll(value.results);
+
+      _isLastPage = value.next.isEmpty;
+
+      state = state.copyWith(
+        gameList: AsyncValue.data([..._currentData]),
+        nextPageGameList: const AsyncValue.data(null),
+      );
+    } else {
+      state = state.copyWith(
+        nextPageGameList: AsyncValue.error(result.error!, result.stackTrace!),
+      );
+    }
   }
 }
 
@@ -44,5 +97,6 @@ class GameListController extends StateNotifier<GameListUiState> {
 class GameListUiState with _$GameListUiState {
   const factory GameListUiState({
     @Default(AsyncValue.loading()) AsyncValue<List<Game>> gameList,
+    @Default(AsyncValue.data(null)) AsyncValue<void> nextPageGameList,
   }) = _GameListUiState;
 }
