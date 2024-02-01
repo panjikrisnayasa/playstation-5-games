@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:playstation_5_games/app/data/games/model/game.dart';
 import 'package:playstation_5_games/app/localizations/build_context_localizations_extension.dart';
 import 'package:playstation_5_games/app/utils/date_time_formatter.dart';
+import 'package:playstation_5_games/app/widgets/image_network_widget.dart';
 
 class GameCard extends StatelessWidget {
   const GameCard({
@@ -28,7 +29,10 @@ class GameCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              _image(),
+              ImageNetworkWidget(
+                url: game.backgroundImage,
+                height: 120,
+              ),
               const SizedBox(height: 12),
               Text(
                 game.name,
@@ -58,36 +62,6 @@ class GameCard extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _image() {
-    const imageHeight = 120.0;
-
-    Widget imageStateContainer(String text) {
-      return Container(
-        color: Colors.black12,
-        width: double.infinity,
-        height: 100,
-        alignment: Alignment.center,
-        child: Text(text),
-      );
-    }
-
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
-      child: Image.network(
-        game.backgroundImage,
-        height: imageHeight,
-        fit: BoxFit.cover,
-        loadingBuilder: (context, child, loadingProgress) {
-          if (loadingProgress == null) return child;
-
-          return imageStateContainer(context.localizations.loadingImage);
-        },
-        errorBuilder: (context, error, stackTrace) =>
-            imageStateContainer(context.localizations.noImageAvailable),
       ),
     );
   }

@@ -13,6 +13,7 @@ class Game with _$Game {
     @Default(0) int id,
     @Default('') String slug,
     @Default('') String name,
+    @Default('') String descriptionRaw,
     @TryParseDateTime() DateTime? released,
     @Default(false) bool tba,
     @Default('') String backgroundImage,
@@ -25,9 +26,13 @@ class Game with _$Game {
     @Default(0) int metacritic,
     @Default(0) int playtime,
     @Default(0) int suggestionsCount,
+    @Default(0) int userGame,
     @TryParseDateTime() DateTime? updated,
     @Default(EsrbRating()) EsrbRating esrbRating,
     @Default([]) List<Platform> platforms,
+    @Default([]) List<Genre> genres,
+    @Default([]) List<Publisher> publishers,
+    @Default([]) List<Store> stores,
   }) = _Game;
 
   factory Game.fromJson(Map<String, dynamic> json) => _$GameFromJson(json);
@@ -73,6 +78,7 @@ class PlatformData with _$PlatformData {
     @Default(0) int id,
     @Default('') String slug,
     @Default('') String name,
+    @Default('') String imageBackground,
   }) = _PlatformData;
 
   factory PlatformData.fromJson(Map<String, dynamic> json) =>
@@ -89,4 +95,60 @@ class Requirements with _$Requirements {
 
   factory Requirements.fromJson(Map<String, dynamic> json) =>
       _$RequirementsFromJson(json);
+}
+
+@freezed
+class Genre with _$Genre {
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory Genre({
+    @Default(0) int id,
+    @Default('') String name,
+    @Default('') String slug,
+    @Default(0) int gamesCount,
+    @Default('') String imageBackground,
+  }) = _Genre;
+
+  factory Genre.fromJson(Map<String, dynamic> json) => _$GenreFromJson(json);
+}
+
+@freezed
+class Publisher with _$Publisher {
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory Publisher({
+    @Default(0) int id,
+    @Default('') String name,
+    @Default('') String slug,
+    @Default(0) int gamesCount,
+    @Default('') String imageBackground,
+  }) = _Publisher;
+
+  factory Publisher.fromJson(Map<String, dynamic> json) =>
+      _$PublisherFromJson(json);
+}
+
+@freezed
+class Store with _$Store {
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory Store({
+    @Default(0) int id,
+    @Default('') String url,
+    @Default(StoreData()) StoreData store,
+  }) = _Store;
+
+  factory Store.fromJson(Map<String, dynamic> json) => _$StoreFromJson(json);
+}
+
+@freezed
+class StoreData with _$StoreData {
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory StoreData({
+    @Default(0) int id,
+    @Default('') String name,
+    @Default('') String slug,
+    @Default('') String imageBackground,
+    @Default('') String domain,
+  }) = _StoreDatar;
+
+  factory StoreData.fromJson(Map<String, dynamic> json) =>
+      _$StoreDataFromJson(json);
 }

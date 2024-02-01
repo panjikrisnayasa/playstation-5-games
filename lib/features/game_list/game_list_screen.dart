@@ -6,6 +6,7 @@ import 'package:playstation_5_games/app/widgets/empty_data_widget.dart';
 import 'package:playstation_5_games/app/widgets/error_state_widget.dart';
 import 'package:playstation_5_games/app/widgets/loading_state_widget.dart';
 import 'package:playstation_5_games/app/widgets/next_page_loading_indicator.dart';
+import 'package:playstation_5_games/features/game_details/game_details_screen.dart';
 import 'package:playstation_5_games/features/game_list/game_list_controller.dart';
 import 'package:playstation_5_games/features/game_list/widgets/game_card.dart';
 
@@ -59,7 +60,7 @@ class _GameListScreenState extends ConsumerState<GameListScreen> {
 
         return _gameList(data);
       },
-      error: (error, stackTrace) {
+      error: (_, __) {
         return ErrorStateWidget(
           onRetry: ref.read(_controller.notifier).onReload,
         );
@@ -110,6 +111,7 @@ class _GameListScreenState extends ConsumerState<GameListScreen> {
             return GameCard(
               key: Key('game_item_${game.id}'),
               game: game,
+              onPressed: () => _navigateToGameDetails(game.id),
             );
           }
 
@@ -118,6 +120,15 @@ class _GameListScreenState extends ConsumerState<GameListScreen> {
             onRetry: ref.read(_controller.notifier).loadMorePlaystation5Games,
           );
         },
+      ),
+    );
+  }
+
+  void _navigateToGameDetails(int id) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => GameDetails(id: id),
       ),
     );
   }

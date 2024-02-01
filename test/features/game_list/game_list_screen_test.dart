@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:playstation_5_games/app/data/base_response.dart';
 import 'package:playstation_5_games/app/data/games/games_repository.dart';
 import 'package:playstation_5_games/app/data/games/model/game.dart';
+import 'package:playstation_5_games/app/data/pagination.dart';
 import 'package:playstation_5_games/features/game_list/game_list_screen.dart';
 import 'package:playstation_5_games/features/game_list/widgets/game_card.dart';
 
@@ -25,7 +25,7 @@ void main() {
     when(
       () => _mockGamesRepository.getPlaystation5Games(),
     ).thenAnswer(
-      (_) async => BaseResponse(
+      (_) async => Pagination(
         next: 'page-2-url',
         count: 40,
         results: _mockResponseList(),
@@ -35,7 +35,7 @@ void main() {
     when(
       () => _mockGamesRepository.getPlaystation5Games(page: 2),
     ).thenAnswer(
-      (_) async => BaseResponse(
+      (_) async => Pagination(
         previous: 'page-1-url',
         count: 40,
         results: _mockResponseList(page: 2),
@@ -77,7 +77,7 @@ void main() {
     when(
       () => _mockGamesRepository.getPlaystation5Games(),
     ).thenAnswer(
-      (_) async => BaseResponse(
+      (_) async => Pagination(
         next: 'page-2-url',
         count: 40,
         results: _mockResponseList(),
@@ -100,7 +100,7 @@ void main() {
     when(
       () => _mockGamesRepository.getPlaystation5Games(),
     ).thenAnswer((_) async {
-      return const BaseResponse(
+      return const Pagination(
         results: [],
       );
     });
@@ -140,7 +140,7 @@ void main() {
       when(
         () => _mockGamesRepository.getPlaystation5Games(),
       ).thenAnswer(
-        (_) async => BaseResponse(
+        (_) async => Pagination(
           next: 'page-2-url',
           count: 40,
           results: _mockResponseList(),
@@ -160,7 +160,7 @@ void main() {
       when(
         () => _mockGamesRepository.getPlaystation5Games(page: 2),
       ).thenAnswer(
-        (_) async => BaseResponse(
+        (_) async => Pagination(
           previous: 'page-1-url',
           count: 40,
           results: _mockResponseList(page: 2),
