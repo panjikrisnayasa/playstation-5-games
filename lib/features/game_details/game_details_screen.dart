@@ -82,7 +82,7 @@ class _GameDetailsState extends ConsumerState<GameDetails> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                        '${context.localizations.metacritic} ${data.metacritic}'),
+                        '${context.localizations.metacriticScore} ${data.metacritic}'),
                     Text(
                         '${context.localizations.rating} ${data.rating}/${data.ratingTop} (${data.ratingsCount})'),
                     const SizedBox(height: 16),
