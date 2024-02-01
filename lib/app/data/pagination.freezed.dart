@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'base_response.dart';
+part of 'pagination.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,13 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-BaseResponse<T> _$BaseResponseFromJson<T>(
+Pagination<T> _$PaginationFromJson<T>(
     Map<String, dynamic> json, T Function(Object?) fromJsonT) {
-  return _BaseResponse<T>.fromJson(json, fromJsonT);
+  return _Pagination<T>.fromJson(json, fromJsonT);
 }
 
 /// @nodoc
-mixin _$BaseResponse<T> {
+mixin _$Pagination<T> {
   int get count => throw _privateConstructorUsedError;
   String get next => throw _privateConstructorUsedError;
   String get previous => throw _privateConstructorUsedError;
@@ -29,23 +29,23 @@ mixin _$BaseResponse<T> {
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $BaseResponseCopyWith<T, BaseResponse<T>> get copyWith =>
+  $PaginationCopyWith<T, Pagination<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BaseResponseCopyWith<T, $Res> {
-  factory $BaseResponseCopyWith(
-          BaseResponse<T> value, $Res Function(BaseResponse<T>) then) =
-      _$BaseResponseCopyWithImpl<T, $Res, BaseResponse<T>>;
+abstract class $PaginationCopyWith<T, $Res> {
+  factory $PaginationCopyWith(
+          Pagination<T> value, $Res Function(Pagination<T>) then) =
+      _$PaginationCopyWithImpl<T, $Res, Pagination<T>>;
   @useResult
   $Res call({int count, String next, String previous, T results});
 }
 
 /// @nodoc
-class _$BaseResponseCopyWithImpl<T, $Res, $Val extends BaseResponse<T>>
-    implements $BaseResponseCopyWith<T, $Res> {
-  _$BaseResponseCopyWithImpl(this._value, this._then);
+class _$PaginationCopyWithImpl<T, $Res, $Val extends Pagination<T>>
+    implements $PaginationCopyWith<T, $Res> {
+  _$PaginationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -82,22 +82,22 @@ class _$BaseResponseCopyWithImpl<T, $Res, $Val extends BaseResponse<T>>
 }
 
 /// @nodoc
-abstract class _$$BaseResponseImplCopyWith<T, $Res>
-    implements $BaseResponseCopyWith<T, $Res> {
-  factory _$$BaseResponseImplCopyWith(_$BaseResponseImpl<T> value,
-          $Res Function(_$BaseResponseImpl<T>) then) =
-      __$$BaseResponseImplCopyWithImpl<T, $Res>;
+abstract class _$$PaginationImplCopyWith<T, $Res>
+    implements $PaginationCopyWith<T, $Res> {
+  factory _$$PaginationImplCopyWith(
+          _$PaginationImpl<T> value, $Res Function(_$PaginationImpl<T>) then) =
+      __$$PaginationImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({int count, String next, String previous, T results});
 }
 
 /// @nodoc
-class __$$BaseResponseImplCopyWithImpl<T, $Res>
-    extends _$BaseResponseCopyWithImpl<T, $Res, _$BaseResponseImpl<T>>
-    implements _$$BaseResponseImplCopyWith<T, $Res> {
-  __$$BaseResponseImplCopyWithImpl(
-      _$BaseResponseImpl<T> _value, $Res Function(_$BaseResponseImpl<T>) _then)
+class __$$PaginationImplCopyWithImpl<T, $Res>
+    extends _$PaginationCopyWithImpl<T, $Res, _$PaginationImpl<T>>
+    implements _$$PaginationImplCopyWith<T, $Res> {
+  __$$PaginationImplCopyWithImpl(
+      _$PaginationImpl<T> _value, $Res Function(_$PaginationImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$BaseResponseImplCopyWithImpl<T, $Res>
     Object? previous = null,
     Object? results = freezed,
   }) {
-    return _then(_$BaseResponseImpl<T>(
+    return _then(_$PaginationImpl<T>(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -131,16 +131,16 @@ class __$$BaseResponseImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 @JsonSerializable(genericArgumentFactories: true)
-class _$BaseResponseImpl<T> implements _BaseResponse<T> {
-  const _$BaseResponseImpl(
+class _$PaginationImpl<T> implements _Pagination<T> {
+  const _$PaginationImpl(
       {this.count = 0,
       this.next = '',
       this.previous = '',
       required this.results});
 
-  factory _$BaseResponseImpl.fromJson(
+  factory _$PaginationImpl.fromJson(
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$$BaseResponseImplFromJson(json, fromJsonT);
+      _$$PaginationImplFromJson(json, fromJsonT);
 
   @override
   @JsonKey()
@@ -156,14 +156,14 @@ class _$BaseResponseImpl<T> implements _BaseResponse<T> {
 
   @override
   String toString() {
-    return 'BaseResponse<$T>(count: $count, next: $next, previous: $previous, results: $results)';
+    return 'Pagination<$T>(count: $count, next: $next, previous: $previous, results: $results)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BaseResponseImpl<T> &&
+            other is _$PaginationImpl<T> &&
             (identical(other.count, count) || other.count == count) &&
             (identical(other.next, next) || other.next == next) &&
             (identical(other.previous, previous) ||
@@ -179,26 +179,25 @@ class _$BaseResponseImpl<T> implements _BaseResponse<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BaseResponseImplCopyWith<T, _$BaseResponseImpl<T>> get copyWith =>
-      __$$BaseResponseImplCopyWithImpl<T, _$BaseResponseImpl<T>>(
-          this, _$identity);
+  _$$PaginationImplCopyWith<T, _$PaginationImpl<T>> get copyWith =>
+      __$$PaginationImplCopyWithImpl<T, _$PaginationImpl<T>>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
-    return _$$BaseResponseImplToJson<T>(this, toJsonT);
+    return _$$PaginationImplToJson<T>(this, toJsonT);
   }
 }
 
-abstract class _BaseResponse<T> implements BaseResponse<T> {
-  const factory _BaseResponse(
+abstract class _Pagination<T> implements Pagination<T> {
+  const factory _Pagination(
       {final int count,
       final String next,
       final String previous,
-      required final T results}) = _$BaseResponseImpl<T>;
+      required final T results}) = _$PaginationImpl<T>;
 
-  factory _BaseResponse.fromJson(
+  factory _Pagination.fromJson(
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =
-      _$BaseResponseImpl<T>.fromJson;
+      _$PaginationImpl<T>.fromJson;
 
   @override
   int get count;
@@ -210,6 +209,6 @@ abstract class _BaseResponse<T> implements BaseResponse<T> {
   T get results;
   @override
   @JsonKey(ignore: true)
-  _$$BaseResponseImplCopyWith<T, _$BaseResponseImpl<T>> get copyWith =>
+  _$$PaginationImplCopyWith<T, _$PaginationImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

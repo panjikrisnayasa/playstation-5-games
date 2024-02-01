@@ -1,20 +1,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'base_response.freezed.dart';
-part 'base_response.g.dart';
+part 'pagination.freezed.dart';
+part 'pagination.g.dart';
 
 @Freezed(genericArgumentFactories: true)
-class BaseResponse<T> with _$BaseResponse<T> {
-  const factory BaseResponse({
+class Pagination<T> with _$Pagination<T> {
+  const factory Pagination({
     @Default(0) int count,
     @Default('') String next,
     @Default('') String previous,
     required T results,
-  }) = _BaseResponse<T>;
+  }) = _Pagination<T>;
 
-  factory BaseResponse.fromJson(
+  factory Pagination.fromJson(
     Map<String, dynamic> json,
     T Function(Object?) fromJsonT,
   ) =>
-      _$BaseResponseFromJson(json, fromJsonT);
+      _$PaginationFromJson(json, fromJsonT);
 }

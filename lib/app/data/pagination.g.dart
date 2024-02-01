@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'base_response.dart';
+part of 'pagination.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BaseResponseImpl<T> _$$BaseResponseImplFromJson<T>(
+_$PaginationImpl<T> _$$PaginationImplFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
 ) =>
-    _$BaseResponseImpl<T>(
+    _$PaginationImpl<T>(
       count: json['count'] as int? ?? 0,
       next: json['next'] as String? ?? '',
       previous: json['previous'] as String? ?? '',
       results: fromJsonT(json['results']),
     );
 
-Map<String, dynamic> _$$BaseResponseImplToJson<T>(
-  _$BaseResponseImpl<T> instance,
+Map<String, dynamic> _$$PaginationImplToJson<T>(
+  _$PaginationImpl<T> instance,
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
