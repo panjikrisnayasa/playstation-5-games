@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:playstation_5_games/app/app_constants.dart';
-import 'package:playstation_5_games/app/data/base_response.dart';
 import 'package:playstation_5_games/app/data/games/model/game.dart';
 import 'package:playstation_5_games/app/data/games/model/games_ordering.dart';
+import 'package:playstation_5_games/app/data/pagination.dart';
 import 'package:playstation_5_games/app/network/http_client.dart';
 import 'package:playstation_5_games/app/utils/date_time_formatter.dart';
 
@@ -19,7 +19,7 @@ class GamesRepository {
 
   final HttpClient _httpClient;
 
-  Future<BaseResponse<List<Game>>> getPlaystation5Games({
+  Future<Pagination<List<Game>>> getPlaystation5Games({
     int page = 1,
     int pageSize = 20,
     DateTime? startDate,
@@ -51,7 +51,7 @@ class GamesRepository {
       },
     );
 
-    return BaseResponse.fromJson(
+    return Pagination.fromJson(
       response,
       (data) {
         return (data as List?)
@@ -62,5 +62,15 @@ class GamesRepository {
             [];
       },
     );
+  }
+
+  Future<Game> getGameDetails({
+    required int id,
+  }) async {
+    final response = await _httpClient.get<Map<String, dynamic>>(
+      path: '/api/games/$id',
+    );
+
+    return Game.fromJson(response);
   }
 }
