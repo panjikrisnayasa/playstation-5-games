@@ -185,6 +185,19 @@ void main() {
         () => _mockGamesRepository.getPlaystation5Games(page: 2),
       ]);
     });
+
+    testWidgets(
+      'Tap the first game card and navigate to GameDetailsScreen',
+      (tester) async {
+        await tester.pumpScreen();
+
+        expectGameListFound();
+
+        await tester.tap(find.byKey(const Key('game_item_1')));
+
+        verify(() => _mockNavigatorObserver.didPush(any(), any()));
+      },
+    );
   });
 }
 
