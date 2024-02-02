@@ -7,7 +7,7 @@ A list of Playstation 5 Games App using Riverpod State Management
 flutter run --dart-define=API_SCHEME=https \
 --dart-define=API_HOST=api.rawg.io \
 --dart-define=API_PORT= \
---dart-define=API_KEY=02ef6ba5d13444ee86bad607e8bce3f4
+--dart-define=API_KEY=your_api_key
 ```
 
 ## Features
