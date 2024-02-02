@@ -87,10 +87,12 @@ class _GameDetailsScreenState extends ConsumerState<GameDetailsScreen> {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text(data.platforms
-                        .map((e) => e.platform.name)
-                        .toList()
-                        .toString()),
+                    Text(
+                      data.platforms
+                          .map((e) => e.platform.name)
+                          .toList()
+                          .toString(),
+                    ),
                     const SizedBox(height: 16),
                     Text(
                       context.localizations.description,
@@ -109,7 +111,8 @@ class _GameDetailsScreenState extends ConsumerState<GameDetailsScreen> {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                        data.publishers.map((e) => e.name).toList().toString()),
+                      data.publishers.map((e) => e.name).toList().toString(),
+                    ),
                   ],
                 ),
               ),
