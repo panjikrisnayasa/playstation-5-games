@@ -22,18 +22,14 @@ class GamesRepository {
   Future<Pagination<List<Game>>> getPlaystation5Games({
     int page = 1,
     int pageSize = 20,
-    DateTime? startDate,
-    DateTime? endDate,
-    GamesOrdering ordering = GamesOrdering.releasedDescending,
   }) async {
     final currentDateTime = DateTime.now();
-
-    startDate ??= DateTime(
+    final startDate = DateTime(
       currentDateTime.year - 1,
       currentDateTime.month,
       currentDateTime.day,
     );
-    endDate ??= DateTime(
+    final endDate = DateTime(
       currentDateTime.year,
       currentDateTime.month,
       currentDateTime.day,
@@ -47,19 +43,18 @@ class GamesRepository {
         'platform': AppConstants.playstation5PlatformCode,
         'dates':
             '${startDate.formatDateToString},${endDate.formatDateToString}',
-        'ordering': ordering.code,
+        'ordering': GamesOrdering.releasedDescending.code,
       },
     );
 
     return Pagination.fromJson(
       response,
       (data) {
-        return (data as List?)
-                ?.map(
-                  (e) => Game.fromJson(e),
-                )
-                .toList() ??
-            [];
+        return (data as List)
+            .map(
+              (e) => Game.fromJson(e),
+            )
+            .toList();
       },
     );
   }

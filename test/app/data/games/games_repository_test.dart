@@ -31,8 +31,17 @@ void main() {
   });
 
   group('Validate getPlaystation5Games()', () {
-    final startDate = DateTime(2023, 1, 31);
-    final endDate = DateTime(2024, 1, 31);
+    final currentDateTime = DateTime.now();
+    final startDate = DateTime(
+      currentDateTime.year - 1,
+      currentDateTime.month,
+      currentDateTime.day,
+    );
+    final endDate = DateTime(
+      currentDateTime.year,
+      currentDateTime.month,
+      currentDateTime.day,
+    );
 
     test('getPlaystation5Games() success', () async {
       when(
@@ -49,10 +58,7 @@ void main() {
         ),
       ).thenAnswer((_) async => _mockPlaystation5GamesResponse);
 
-      final result = await repository?.getPlaystation5Games(
-        startDate: startDate,
-        endDate: endDate,
-      );
+      final result = await repository?.getPlaystation5Games();
 
       expect(
         result,
@@ -78,10 +84,7 @@ void main() {
       ).thenThrow(exception);
 
       expect(
-        () async => repository?.getPlaystation5Games(
-          startDate: startDate,
-          endDate: endDate,
-        ),
+        () async => repository?.getPlaystation5Games(),
         throwsA(exception),
       );
     });
