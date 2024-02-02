@@ -16,10 +16,6 @@ _$GameImpl _$$GameImplFromJson(Map<String, dynamic> json) => _$GameImpl(
       backgroundImage: json['background_image'] as String? ?? '',
       rating: (json['rating'] as num?)?.toDouble() ?? 0,
       ratingTop: json['rating_top'] as int? ?? 0,
-      ratings: (json['ratings'] as List<dynamic>?)
-              ?.map((e) => Rating.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
       ratingsCount: json['ratings_count'] as int? ?? 0,
       reviewsTextCount: json['reviews_text_count'] as int? ?? 0,
       added: json['added'] as int? ?? 0,
@@ -60,7 +56,6 @@ Map<String, dynamic> _$$GameImplToJson(_$GameImpl instance) =>
       'background_image': instance.backgroundImage,
       'rating': instance.rating,
       'rating_top': instance.ratingTop,
-      'ratings': instance.ratings,
       'ratings_count': instance.ratingsCount,
       'reviews_text_count': instance.reviewsTextCount,
       'added': instance.added,
@@ -75,11 +70,6 @@ Map<String, dynamic> _$$GameImplToJson(_$GameImpl instance) =>
       'publishers': instance.publishers,
       'stores': instance.stores,
     };
-
-_$RatingImpl _$$RatingImplFromJson(Map<String, dynamic> json) => _$RatingImpl();
-
-Map<String, dynamic> _$$RatingImplToJson(_$RatingImpl instance) =>
-    <String, dynamic>{};
 
 _$EsrbRatingImpl _$$EsrbRatingImplFromJson(Map<String, dynamic> json) =>
     _$EsrbRatingImpl(

@@ -30,7 +30,6 @@ mixin _$Game {
   String get backgroundImage => throw _privateConstructorUsedError;
   double get rating => throw _privateConstructorUsedError;
   int get ratingTop => throw _privateConstructorUsedError;
-  List<Rating> get ratings => throw _privateConstructorUsedError;
   int get ratingsCount => throw _privateConstructorUsedError;
   int get reviewsTextCount => throw _privateConstructorUsedError;
   int get added => throw _privateConstructorUsedError;
@@ -66,7 +65,6 @@ abstract class $GameCopyWith<$Res> {
       String backgroundImage,
       double rating,
       int ratingTop,
-      List<Rating> ratings,
       int ratingsCount,
       int reviewsTextCount,
       int added,
@@ -106,7 +104,6 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
     Object? backgroundImage = null,
     Object? rating = null,
     Object? ratingTop = null,
-    Object? ratings = null,
     Object? ratingsCount = null,
     Object? reviewsTextCount = null,
     Object? added = null,
@@ -158,10 +155,6 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
           ? _value.ratingTop
           : ratingTop // ignore: cast_nullable_to_non_nullable
               as int,
-      ratings: null == ratings
-          ? _value.ratings
-          : ratings // ignore: cast_nullable_to_non_nullable
-              as List<Rating>,
       ratingsCount: null == ratingsCount
           ? _value.ratingsCount
           : ratingsCount // ignore: cast_nullable_to_non_nullable
@@ -243,7 +236,6 @@ abstract class _$$GameImplCopyWith<$Res> implements $GameCopyWith<$Res> {
       String backgroundImage,
       double rating,
       int ratingTop,
-      List<Rating> ratings,
       int ratingsCount,
       int reviewsTextCount,
       int added,
@@ -281,7 +273,6 @@ class __$$GameImplCopyWithImpl<$Res>
     Object? backgroundImage = null,
     Object? rating = null,
     Object? ratingTop = null,
-    Object? ratings = null,
     Object? ratingsCount = null,
     Object? reviewsTextCount = null,
     Object? added = null,
@@ -333,10 +324,6 @@ class __$$GameImplCopyWithImpl<$Res>
           ? _value.ratingTop
           : ratingTop // ignore: cast_nullable_to_non_nullable
               as int,
-      ratings: null == ratings
-          ? _value._ratings
-          : ratings // ignore: cast_nullable_to_non_nullable
-              as List<Rating>,
       ratingsCount: null == ratingsCount
           ? _value.ratingsCount
           : ratingsCount // ignore: cast_nullable_to_non_nullable
@@ -407,7 +394,6 @@ class _$GameImpl implements _Game {
       this.backgroundImage = '',
       this.rating = 0,
       this.ratingTop = 0,
-      final List<Rating> ratings = const [],
       this.ratingsCount = 0,
       this.reviewsTextCount = 0,
       this.added = 0,
@@ -421,8 +407,7 @@ class _$GameImpl implements _Game {
       final List<Genre> genres = const [],
       final List<Publisher> publishers = const [],
       final List<Store> stores = const []})
-      : _ratings = ratings,
-        _platforms = platforms,
+      : _platforms = platforms,
         _genres = genres,
         _publishers = publishers,
         _stores = stores;
@@ -457,15 +442,6 @@ class _$GameImpl implements _Game {
   @override
   @JsonKey()
   final int ratingTop;
-  final List<Rating> _ratings;
-  @override
-  @JsonKey()
-  List<Rating> get ratings {
-    if (_ratings is EqualUnmodifiableListView) return _ratings;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_ratings);
-  }
-
   @override
   @JsonKey()
   final int ratingsCount;
@@ -531,7 +507,7 @@ class _$GameImpl implements _Game {
 
   @override
   String toString() {
-    return 'Game(id: $id, slug: $slug, name: $name, descriptionRaw: $descriptionRaw, released: $released, tba: $tba, backgroundImage: $backgroundImage, rating: $rating, ratingTop: $ratingTop, ratings: $ratings, ratingsCount: $ratingsCount, reviewsTextCount: $reviewsTextCount, added: $added, metacritic: $metacritic, playtime: $playtime, suggestionsCount: $suggestionsCount, userGame: $userGame, updated: $updated, esrbRating: $esrbRating, platforms: $platforms, genres: $genres, publishers: $publishers, stores: $stores)';
+    return 'Game(id: $id, slug: $slug, name: $name, descriptionRaw: $descriptionRaw, released: $released, tba: $tba, backgroundImage: $backgroundImage, rating: $rating, ratingTop: $ratingTop, ratingsCount: $ratingsCount, reviewsTextCount: $reviewsTextCount, added: $added, metacritic: $metacritic, playtime: $playtime, suggestionsCount: $suggestionsCount, userGame: $userGame, updated: $updated, esrbRating: $esrbRating, platforms: $platforms, genres: $genres, publishers: $publishers, stores: $stores)';
   }
 
   @override
@@ -552,7 +528,6 @@ class _$GameImpl implements _Game {
             (identical(other.rating, rating) || other.rating == rating) &&
             (identical(other.ratingTop, ratingTop) ||
                 other.ratingTop == ratingTop) &&
-            const DeepCollectionEquality().equals(other._ratings, _ratings) &&
             (identical(other.ratingsCount, ratingsCount) ||
                 other.ratingsCount == ratingsCount) &&
             (identical(other.reviewsTextCount, reviewsTextCount) ||
@@ -590,7 +565,6 @@ class _$GameImpl implements _Game {
         backgroundImage,
         rating,
         ratingTop,
-        const DeepCollectionEquality().hash(_ratings),
         ratingsCount,
         reviewsTextCount,
         added,
@@ -631,7 +605,6 @@ abstract class _Game implements Game {
       final String backgroundImage,
       final double rating,
       final int ratingTop,
-      final List<Rating> ratings,
       final int ratingsCount,
       final int reviewsTextCount,
       final int added,
@@ -668,8 +641,6 @@ abstract class _Game implements Game {
   @override
   int get ratingTop;
   @override
-  List<Rating> get ratings;
-  @override
   int get ratingsCount;
   @override
   int get reviewsTextCount;
@@ -700,85 +671,6 @@ abstract class _Game implements Game {
   @JsonKey(ignore: true)
   _$$GameImplCopyWith<_$GameImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-Rating _$RatingFromJson(Map<String, dynamic> json) {
-  return _Rating.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Rating {
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RatingCopyWith<$Res> {
-  factory $RatingCopyWith(Rating value, $Res Function(Rating) then) =
-      _$RatingCopyWithImpl<$Res, Rating>;
-}
-
-/// @nodoc
-class _$RatingCopyWithImpl<$Res, $Val extends Rating>
-    implements $RatingCopyWith<$Res> {
-  _$RatingCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$RatingImplCopyWith<$Res> {
-  factory _$$RatingImplCopyWith(
-          _$RatingImpl value, $Res Function(_$RatingImpl) then) =
-      __$$RatingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$RatingImplCopyWithImpl<$Res>
-    extends _$RatingCopyWithImpl<$Res, _$RatingImpl>
-    implements _$$RatingImplCopyWith<$Res> {
-  __$$RatingImplCopyWithImpl(
-      _$RatingImpl _value, $Res Function(_$RatingImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$RatingImpl implements _Rating {
-  const _$RatingImpl();
-
-  factory _$RatingImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RatingImplFromJson(json);
-
-  @override
-  String toString() {
-    return 'Rating()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RatingImpl);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RatingImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Rating implements Rating {
-  const factory _Rating() = _$RatingImpl;
-
-  factory _Rating.fromJson(Map<String, dynamic> json) = _$RatingImpl.fromJson;
 }
 
 EsrbRating _$EsrbRatingFromJson(Map<String, dynamic> json) {

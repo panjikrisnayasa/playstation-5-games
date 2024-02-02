@@ -19,7 +19,6 @@ class Game with _$Game {
     @Default('') String backgroundImage,
     @Default(0) double rating,
     @Default(0) int ratingTop,
-    @Default([]) List<Rating> ratings,
     @Default(0) int ratingsCount,
     @Default(0) int reviewsTextCount,
     @Default(0) int added,
@@ -36,13 +35,6 @@ class Game with _$Game {
   }) = _Game;
 
   factory Game.fromJson(Map<String, dynamic> json) => _$GameFromJson(json);
-}
-
-@freezed
-class Rating with _$Rating {
-  const factory Rating() = _Rating;
-
-  factory Rating.fromJson(Map<String, dynamic> json) => _$RatingFromJson(json);
 }
 
 @freezed

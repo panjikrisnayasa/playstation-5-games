@@ -130,27 +130,33 @@ final _mockPlaystation5GamesResponse = {
     {
       "slug": "grand-theft-aito-vi",
       "name": "Grand Theft Auto VI",
-      "playtime": 0,
+      "playtime": 100,
       "platforms": [
         {
           "platform": {
             "id": 187,
             "name": "PlayStation 5",
-            "slug": "playstation5"
+            "slug": "playstation5",
+            "image_background":
+                'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+          },
+          "released_at": "2025-01-12",
+          "requirements": {
+            "minimum": 'minimum',
+            "recommended": 'recommended',
           }
-        }
+        },
       ],
       "released": "2025-09-01",
       "tba": true,
       "background_image":
           "https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg",
-      "rating": 0,
-      "rating_top": 0,
-      "ratings": [],
-      "ratings_count": 0,
-      "reviews_text_count": 0,
+      "rating": 12,
+      "rating_top": 13,
+      "ratings_count": 14,
+      "reviews_text_count": 15,
       "added": 61,
-      "metacritic": null,
+      "metacritic": 16,
       "suggestions_count": 478,
       "updated": "2024-01-13",
       "id": _gameId,
@@ -159,6 +165,42 @@ final _mockPlaystation5GamesResponse = {
         "name": "Rating Pending",
         "slug": "rating-pending",
       },
+      "publishers": [
+        {
+          "id": 7,
+          "name": 'publisher_name',
+          "slug": 'publisher_slug',
+          "games_count": 1000,
+          "image_background":
+              'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+        },
+      ],
+      "genres": [
+        {
+          "image_background":
+              'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+          "games_count": 1001,
+          "slug": 'genre_slug',
+          "id": 8,
+          "name": 'genre_name',
+        },
+      ],
+      "description_raw": 'description_raw',
+      "stores": [
+        {
+          "id": 8,
+          "url": 'https://store.steampowered.com/',
+          "store": {
+            "id": 9,
+            "name": 'steam',
+            "slug": 'steam_slug',
+            "image_background":
+                'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+            "domain": 'https://store.steampowered.com/',
+          },
+        },
+      ],
+      "user_game": 1000000,
     }
   ]
 };
@@ -169,24 +211,30 @@ final _expectedPlaystation5Games = Pagination(
     Game(
       slug: 'grand-theft-aito-vi',
       name: 'Grand Theft Auto VI',
-      playtime: 0,
-      platforms: <Platform>[
-        const Platform(
-          platform: PlatformData(
-              id: 187, name: 'PlayStation 5', slug: 'playstation5'),
-        ),
+      playtime: 100,
+      platforms: [
+        Platform(
+            platform: const PlatformData(
+              id: 187,
+              name: 'PlayStation 5',
+              slug: 'playstation5',
+              imageBackground:
+                  'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+            ),
+            releasedAt: DateTime(2025, 1, 12),
+            requirements: const Requirements(
+                minimum: 'minimum', recommended: 'recommended')),
       ],
       released: DateTime(2025, 9, 1),
       tba: true,
       backgroundImage:
           'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
-      rating: 0,
-      ratingTop: 0,
-      ratings: <Rating>[],
-      ratingsCount: 0,
-      reviewsTextCount: 0,
+      rating: 12,
+      ratingTop: 13,
+      ratingsCount: 14,
+      reviewsTextCount: 15,
       added: 61,
-      metacritic: 0,
+      metacritic: 16,
       suggestionsCount: 478,
       updated: DateTime(2024, 1, 13),
       id: _gameId,
@@ -195,30 +243,76 @@ final _expectedPlaystation5Games = Pagination(
         name: "Rating Pending",
         slug: "rating-pending",
       ),
-    ),
+      publishers: [
+        const Publisher(
+          id: 7,
+          name: 'publisher_name',
+          slug: 'publisher_slug',
+          gamesCount: 1000,
+          imageBackground:
+              'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+        ),
+      ],
+      genres: [
+        const Genre(
+          imageBackground:
+              'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+          gamesCount: 1001,
+          slug: 'genre_slug',
+          id: 8,
+          name: 'genre_name',
+        ),
+      ],
+      descriptionRaw: 'description_raw',
+      stores: [
+        const Store(
+          id: 8,
+          url: 'https://store.steampowered.com/',
+          store: StoreData(
+            id: 9,
+            name: 'steam',
+            slug: 'steam_slug',
+            imageBackground:
+                'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+            domain: 'https://store.steampowered.com/',
+          ),
+        )
+      ],
+      userGame: 1000000,
+    )
   ],
 );
 
 final _mockGameDetailsResponse = {
   "slug": "grand-theft-aito-vi",
   "name": "Grand Theft Auto VI",
-  "playtime": 0,
+  "playtime": 100,
   "platforms": [
     {
-      "platform": {"id": 187, "name": "PlayStation 5", "slug": "playstation5"}
-    }
+      "platform": {
+        "id": 187,
+        "name": "PlayStation 5",
+        "slug": "playstation5",
+        "image_background":
+            'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+      },
+      "released_at": "2025-01-12",
+      "requirements": {
+        "minimum": 'minimum',
+        "recommended": 'recommended',
+      }
+    },
   ],
   "released": "2025-09-01",
   "tba": true,
   "background_image":
       "https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg",
-  "rating": 0,
-  "rating_top": 0,
-  "ratings": [],
-  "ratings_count": 0,
-  "reviews_text_count": 0,
+  "rating": 12,
+  "rating_top": 13,
+  "ratings_count": 14,
+  "reviews_text_count": 15,
   "added": 61,
-  "metacritic": null,
+  "metacritic": 16,
   "suggestions_count": 478,
   "updated": "2024-01-13",
   "id": _gameId,
@@ -227,29 +321,71 @@ final _mockGameDetailsResponse = {
     "name": "Rating Pending",
     "slug": "rating-pending",
   },
+  "publishers": [
+    {
+      "id": 7,
+      "name": 'publisher_name',
+      "slug": 'publisher_slug',
+      "games_count": 1000,
+      "image_background":
+          'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+    },
+  ],
+  "genres": [
+    {
+      "image_background":
+          'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+      "games_count": 1001,
+      "slug": 'genre_slug',
+      "id": 8,
+      "name": 'genre_name',
+    },
+  ],
+  "description_raw": 'description_raw',
+  "stores": [
+    {
+      "id": 8,
+      "url": 'https://store.steampowered.com/',
+      "store": {
+        "id": 9,
+        "name": 'steam',
+        "slug": 'steam_slug',
+        "image_background":
+            'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+        "domain": 'https://store.steampowered.com/',
+      },
+    },
+  ],
+  "user_game": 1000000,
 };
 
 final _expectedGameDetails = Game(
   slug: 'grand-theft-aito-vi',
   name: 'Grand Theft Auto VI',
-  playtime: 0,
-  platforms: <Platform>[
-    const Platform(
-      platform:
-          PlatformData(id: 187, name: 'PlayStation 5', slug: 'playstation5'),
-    ),
+  playtime: 100,
+  platforms: [
+    Platform(
+        platform: const PlatformData(
+          id: 187,
+          name: 'PlayStation 5',
+          slug: 'playstation5',
+          imageBackground:
+              'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+        ),
+        releasedAt: DateTime(2025, 1, 12),
+        requirements:
+            const Requirements(minimum: 'minimum', recommended: 'recommended')),
   ],
   released: DateTime(2025, 9, 1),
   tba: true,
   backgroundImage:
       'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
-  rating: 0,
-  ratingTop: 0,
-  ratings: <Rating>[],
-  ratingsCount: 0,
-  reviewsTextCount: 0,
+  rating: 12,
+  ratingTop: 13,
+  ratingsCount: 14,
+  reviewsTextCount: 15,
   added: 61,
-  metacritic: 0,
+  metacritic: 16,
   suggestionsCount: 478,
   updated: DateTime(2024, 1, 13),
   id: _gameId,
@@ -258,4 +394,40 @@ final _expectedGameDetails = Game(
     name: "Rating Pending",
     slug: "rating-pending",
   ),
+  publishers: [
+    const Publisher(
+      id: 7,
+      name: 'publisher_name',
+      slug: 'publisher_slug',
+      gamesCount: 1000,
+      imageBackground:
+          'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+    ),
+  ],
+  genres: [
+    const Genre(
+      imageBackground:
+          'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+      gamesCount: 1001,
+      slug: 'genre_slug',
+      id: 8,
+      name: 'genre_name',
+    ),
+  ],
+  descriptionRaw: 'description_raw',
+  stores: [
+    const Store(
+      id: 8,
+      url: 'https://store.steampowered.com/',
+      store: StoreData(
+        id: 9,
+        name: 'steam',
+        slug: 'steam_slug',
+        imageBackground:
+            'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+        domain: 'https://store.steampowered.com/',
+      ),
+    )
+  ],
+  userGame: 1000000,
 );
