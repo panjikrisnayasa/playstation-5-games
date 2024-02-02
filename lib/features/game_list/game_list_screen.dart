@@ -128,7 +128,7 @@ class _GameListScreenState extends ConsumerState<GameListScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => GameDetails(id: id),
+        builder: (context) => GameDetailsScreen(id: id),
       ),
     );
   }

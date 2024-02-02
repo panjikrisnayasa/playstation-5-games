@@ -6,8 +6,8 @@ import 'package:playstation_5_games/app/widgets/image_network_widget.dart';
 import 'package:playstation_5_games/app/widgets/loading_state_widget.dart';
 import 'package:playstation_5_games/features/game_details/game_details_controller.dart';
 
-class GameDetails extends ConsumerStatefulWidget {
-  const GameDetails({
+class GameDetailsScreen extends ConsumerStatefulWidget {
+  const GameDetailsScreen({
     super.key,
     required this.id,
   });
@@ -15,10 +15,10 @@ class GameDetails extends ConsumerStatefulWidget {
   final int id;
 
   @override
-  ConsumerState<GameDetails> createState() => _GameDetailsState();
+  ConsumerState<GameDetailsScreen> createState() => _GameDetailsScreenState();
 }
 
-class _GameDetailsState extends ConsumerState<GameDetails> {
+class _GameDetailsScreenState extends ConsumerState<GameDetailsScreen> {
   final _controller = GameDetailsController.provider;
 
   @override
@@ -73,13 +73,7 @@ class _GameDetailsState extends ConsumerState<GameDetails> {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    Row(
-                      children: data.genres
-                          .map(
-                            (e) => Text('${e.name} '),
-                          )
-                          .toList(),
-                    ),
+                    Text(data.genres.map((e) => e.name).toList().toString()),
                     const SizedBox(height: 8),
                     Text(
                         '${context.localizations.metacriticScore} ${data.metacritic}'),
@@ -93,13 +87,10 @@ class _GameDetailsState extends ConsumerState<GameDetails> {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Row(
-                      children: data.platforms
-                          .map(
-                            (e) => Text('${e.platform.name} '),
-                          )
-                          .toList(),
-                    ),
+                    Text(data.platforms
+                        .map((e) => e.platform.name)
+                        .toList()
+                        .toString()),
                     const SizedBox(height: 16),
                     Text(
                       context.localizations.description,
@@ -117,13 +108,8 @@ class _GameDetailsState extends ConsumerState<GameDetails> {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Row(
-                      children: data.publishers
-                          .map(
-                            (e) => Text('${e.name} '),
-                          )
-                          .toList(),
-                    ),
+                    Text(
+                        data.publishers.map((e) => e.name).toList().toString()),
                   ],
                 ),
               ),
