@@ -244,7 +244,7 @@ extension _WidgetTesterExtension on WidgetTester {
         Key('game_item_$itemId'),
       ),
       find.byKey(const Key('game_list')),
-      const Offset(0, -1000),
+      const Offset(0, -600),
     );
 
     await pumpAndSettle();
